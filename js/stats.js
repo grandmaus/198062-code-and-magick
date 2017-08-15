@@ -27,8 +27,8 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.font = '14px PT Mono';
   ctx.fillText('Ура вы победили!', 120, 40);
 
-  function randomBlue() {
-    ctx.fillStyle = 'rgba(0, 0, 255,' + (Math.random()) + ')';
+  function getRandomBlue() {
+    return 'rgba(0, 0, 255,' + (Math.random()) + ')';
   }
 
   ctx.textBaseline = 'bottom';
@@ -43,7 +43,7 @@ window.renderStatistics = function (ctx, names, times) {
 
     var step = histogramHeight / max;
 
-    var color = (name === 'Вы') ? 'rgba(255, 0, 0, 1)' : randomBlue();
+    var color = (name === 'Вы') ? 'rgba(255, 0, 0, 1)' : getRandomBlue();
     ctx.fillStyle = color;
     /* INITIAL_X -- начальная координата по оси x;
     INITIAL_X + INDENT * i -- к начальной точке прибавляем значение переменной

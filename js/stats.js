@@ -2,11 +2,13 @@
 
 window.renderStatistics = function (ctx, names, times) {
   var max = -1;
+  var i = 0;
 
   // coordinates and sizes
   var INITIAL_X = 120;
   var INITIAL_Y = 250;
   var BAR_WIDTH = 40;
+  var HISTOGRAM_HEIGHT = 150;
 
   // indents
   var INDENT = 90;
@@ -27,23 +29,26 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.font = '14px PT Mono';
   ctx.fillText('Ура вы победили!', 120, 40);
 
-  function getRandomBlue() {
-    return 'rgba(0, 0, 255,' + (Math.random()) + ')';
+  function getRandomBlueColor() {
+    return 'rgba(0, 0, 255,' + (Math.random() * 0.9 + 0.1) + ')';
   }
 
-  ctx.textBaseline = 'bottom';
-  for (var i = 0; i < times.length; i++) {
+  for (i = 0; i < times.length; i++) {
     var time = times[i];
-    var name = names[i];
-    var histogramHeight = 150;
-
     if (time > max) {
       max = time;
     }
+  }
 
-    var step = histogramHeight / max;
+  var step = HISTOGRAM_HEIGHT / max;
 
-    var color = (name === 'Вы') ? 'rgba(255, 0, 0, 1)' : getRandomBlue();
+  ctx.textBaseline = 'bottom';
+
+  for (i = 0; i < times.length; i++) {
+    time = times[i];
+    var name = names[i];
+
+    var color = (name === 'Вы') ? 'rgba(255, 0, 0, 1)' : getRandomBlueColor();
     ctx.fillStyle = color;
     /* INITIAL_X -- начальная координата по оси x;
     INITIAL_X + INDENT * i -- к начальной точке прибавляем значение переменной

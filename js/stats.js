@@ -5,8 +5,8 @@ window.renderStatistics = function (ctx, names, times) {
   var i = 0;
 
   // coordinates and sizes
-  var INITIAL_X = 120;
-  var INITIAL_Y = 250;
+  var INITIAL_X = 140;
+  var INITIAL_Y = 245;
   var BAR_WIDTH = 40;
   var HISTOGRAM_HEIGHT = 150;
 
@@ -28,6 +28,7 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillStyle = 'rgba(0, 0, 0, 1)';
   ctx.font = '14px PT Mono';
   ctx.fillText('Ура вы победили!', 120, 40);
+  ctx.fillText('Список результатов:', 120, 60);
 
   function getRandomBlueColor() {
     return 'rgba(0, 0, 255,' + (Math.random() * 0.9 + 0.1) + ')';

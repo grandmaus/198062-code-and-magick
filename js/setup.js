@@ -2,7 +2,7 @@
 
 // объект с массивами характеристик персонажей
 var WizardParams = {
-  Names: [
+  NAMES: [
     'Иван',
     'Хуан Себастьян',
     'Мария', 'Кристоф',
@@ -11,7 +11,7 @@ var WizardParams = {
     'Люпита',
     'Вашингтон'
   ],
-  Surnames: [
+  SURNAMES: [
     'да Марья',
     'Верон',
     'Мирабелла',
@@ -21,7 +21,7 @@ var WizardParams = {
     'Нионго',
     'Ирвинг'
   ],
-  CoatColors: [
+  COAT_COLORS: [
     'rgb(101, 137, 164)',
     'rgb(241, 43, 107)',
     'rgb(146, 100, 161)',
@@ -29,7 +29,7 @@ var WizardParams = {
     'rgb(215, 210, 55)',
     'rgb(0, 0, 0)'
   ],
-  EyesColors: [
+  EYES_COLORS: [
     'black',
     'red',
     'blue',
@@ -62,9 +62,9 @@ var getRandomArrayElement = function (array) {
 // функция возвращает сгенерированный объект персонажа
 var getRandomWizard = function () {
   var wizardObject = {
-    name: getRandomArrayElement(WizardParams.Names) + ' ' + getRandomArrayElement(WizardParams.Surnames),
-    coatColor: getRandomArrayElement(WizardParams.CoatColors),
-    eyesColor: getRandomArrayElement(WizardParams.EyesColors)
+    name: getRandomArrayElement(WizardParams.NAMES) + ' ' + getRandomArrayElement(WizardParams.SURNAMES),
+    coatColor: getRandomArrayElement(WizardParams.COAT_COLORS),
+    eyesColor: getRandomArrayElement(WizardParams.EYES_COLORS)
   };
   return wizardObject;
 };
